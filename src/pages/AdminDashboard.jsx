@@ -4,14 +4,7 @@ import {
   Table, TableBody, TableCell, TableHead, TableRow, Badge,
   Menu, MenuItem, Divider, TextField, InputAdornment
 } from '@mui/material';
-import {
-  Dashboard as DashboardIcon,
-  Inventory2, TrackChanges, LocationOn, Person,
-  Notifications, Search, TrendingUp, Groups,
-  CheckCircle, Schedule, LocalShipping, Cancel,
-  MoreVert, ArrowUpward, ArrowDownward, Menu as MenuIcon,
-  Close, Logout, Settings, ChevronRight
-} from '@mui/icons-material';
+import { TrendingUp, Groups, Close, Settings } from '@mui/icons-material';
 
 // ─── Mock Data ────────────────────────────────────────────────────────────────
 const STATS = [

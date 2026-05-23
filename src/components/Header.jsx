@@ -28,7 +28,7 @@ const Header = () => {
       const t = setTimeout(() => setShowLogin(true), 400);
       return () => clearTimeout(t);
     }
-  }, []);
+  }, [user]);
 
   const handleCloseLogin = () => {
     sessionStorage.setItem('rw_login_shown', 'true');
