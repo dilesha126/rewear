@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import {
-  Box, Typography, Avatar, IconButton, Chip, LinearProgress,
+  Box, Typography, Avatar, IconButton, LinearProgress,
   Table, TableBody, TableCell, TableHead, TableRow, Badge,
-  Menu, MenuItem, Divider, TextField, InputAdornment
+  Menu, MenuItem, Divider, TextField, InputAdornment 
 } from '@mui/material';
-import { TrendingUp, Groups, Close, Settings } from '@mui/icons-material';
+
+// ✅ All Lucide Icons
+import { 
+  LayoutDashboard, Package, Target, MapPin, User,
+  Search,ChevronRight, CheckCircle2, 
+  Truck, Clock, X 
+} from "lucide-react";
 
 // ─── Mock Data ────────────────────────────────────────────────────────────────
 const STATS = [
@@ -19,7 +25,7 @@ const DONATIONS = [
   { id: 'D-1020', donor: 'Priya Mehta',   items: 3,  ngo: 'Green Earth',    status: 'in-transit', date: '21 May 2026' },
   { id: 'D-1019', donor: 'Rohan Verma',   items: 12, ngo: 'Seva Sadan',     status: 'pending',    date: '20 May 2026' },
   { id: 'D-1018', donor: 'Sneha Patel',   items: 5,  ngo: 'Umeed Trust',    status: 'delivered',  date: '19 May 2026' },
-  { id: 'D-1017', donor: 'Kiran Joshi',   items: 7,  ngo: 'Aashray NGO',    status: 'cancelled',  date: '18 May 2026' },
+  { id: 'D-1017', donor: 'rohit sharma',   items: 7,  ngo: 'Aashray NGO',    status: 'cancelled',  date: '18 May 2026' },
   { id: 'D-1016', donor: 'Meera Iyer',    items: 2,  ngo: 'Green Earth',    status: 'in-transit', date: '17 May 2026' },
   { id: 'D-1015', donor: 'Arjun Nair',    items: 9,  ngo: 'Seva Sadan',     status: 'delivered',  date: '16 May 2026' },
 ];
@@ -33,18 +39,18 @@ const NGOS = [
 ];
 
 const STATUS_CONFIG = {
-  delivered:   { label: 'Delivered',   color: '#10B981', bg: 'rgba(16,185,129,0.12)', icon: <CheckCircle sx={{ fontSize: 13 }} /> },
-  'in-transit':{ label: 'In Transit',  color: '#3B82F6', bg: 'rgba(59,130,246,0.12)', icon: <LocalShipping sx={{ fontSize: 13 }} /> },
-  pending:     { label: 'Pending',     color: '#F59E0B', bg: 'rgba(245,158,11,0.12)', icon: <Schedule sx={{ fontSize: 13 }} /> },
-  cancelled:   { label: 'Cancelled',   color: '#EF4444', bg: 'rgba(239,68,68,0.12)',  icon: <Cancel sx={{ fontSize: 13 }} /> },
+  delivered:   { label: 'Delivered',   color: '#10B981', bg: 'rgba(16,185,129,0.12)', icon: <CheckCircle2 size={13} /> },
+  'in-transit':{ label: 'In Transit',  color: '#3B82F6', bg: 'rgba(59,130,246,0.12)', icon: <Truck size={13} /> },
+  pending:     { label: 'Pending',     color: '#F59E0B', bg: 'rgba(245,158,11,0.12)', icon: <Clock size={13} /> },
+  cancelled:   { label: 'Cancelled',   color: '#EF4444', bg: 'rgba(239,68,68,0.12)',  icon: <X size={13} /> },
 };
 
 const NAV_ITEMS = [
-  { id: 'overview',  label: 'Overview',    icon: <DashboardIcon fontSize="small" /> },
-  { id: 'donations', label: 'Donations',   icon: <Inventory2 fontSize="small" /> },
-  { id: 'tracking',  label: 'Track Status',icon: <TrackChanges fontSize="small" /> },
-  { id: 'ngos',      label: 'NGO List',    icon: <LocationOn fontSize="small" /> },
-  { id: 'profile',   label: 'Profile',     icon: <Person fontSize="small" /> },
+  { id: 'overview',  label: 'Overview',    icon: <LayoutDashboard size={18} /> },
+  { id: 'donations', label: 'Donations',   icon: <Package size={18} /> },
+  { id: 'tracking',  label: 'Track Status',icon: <Target size={18} /> },
+  { id: 'ngos',      label: 'NGO List',    icon: <MapPin size={18} /> },
+  { id: 'profile',   label: 'Profile',     icon: <User size={18} /> },
 ];
 
 // ─── Sub-components ────────────────────────────────────────────────────────────
@@ -92,7 +98,7 @@ const OverviewSection = () => (
               fontSize: '0.75rem', fontWeight: 700,
               fontFamily: "'DM Sans', sans-serif",
             }}>
-              {s.up ? <ArrowUpward sx={{ fontSize: 12 }} /> : <ArrowDownward sx={{ fontSize: 12 }} />}
+             
               {s.change}
             </Box>
           </Box>
@@ -223,7 +229,7 @@ const DonationsSection = () => {
                 <TableCell sx={{ borderBottom: '1px solid rgba(15,118,110,0.06)', py: 1.8 }}><StatusChip status={d.status} /></TableCell>
                 <TableCell sx={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.82rem', color: '#9CA3AF', borderBottom: '1px solid rgba(15,118,110,0.06)', py: 1.8 }}>{d.date}</TableCell>
                 <TableCell sx={{ borderBottom: '1px solid rgba(15,118,110,0.06)', py: 1.8 }}>
-                  <IconButton size="small" sx={{ color: '#9CA3AF', '&:hover': { color: '#0F766E' } }}><MoreVert fontSize="small" /></IconButton>
+                 
                 </TableCell>
               </TableRow>
             ))}
@@ -663,7 +669,7 @@ const AdminDashboard = () => {
             '&:hover': { color: '#EF4444', bgcolor: 'rgba(239,68,68,0.08)' },
             transition: 'all 0.2s',
           }}>
-            <Logout fontSize="small" sx={{ flexShrink: 0 }} />
+       
             {sidebarOpen && <Typography sx={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.88rem' }}>Logout</Typography>}
           </Box>
         </Box>
@@ -682,7 +688,7 @@ const AdminDashboard = () => {
         }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <IconButton onClick={() => setSidebarOpen(o => !o)} sx={{ color: '#0F766E', '&:hover': { bgcolor: 'rgba(15,118,110,0.08)' } }}>
-              <MenuIcon />
+             
             </IconButton>
             <Typography sx={{ fontFamily: "'DM Sans', sans-serif", color: '#9CA3AF', fontSize: '0.85rem' }}>
               Admin / <span style={{ color: '#0F766E', fontWeight: 700 }}>
@@ -697,7 +703,7 @@ const AdminDashboard = () => {
               sx={{ color: '#6B7280', '&:hover': { color: '#0F766E', bgcolor: 'rgba(15,118,110,0.08)' } }}
             >
               <Badge badgeContent={3} color="error">
-                <Notifications />
+             
               </Badge>
             </IconButton>
             <Menu anchorEl={notifAnchor} open={Boolean(notifAnchor)} onClose={() => setNotifAnchor(null)}

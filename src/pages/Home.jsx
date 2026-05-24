@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  ArrowRight, Truck, ShieldCheck, Leaf, Users, Package,
-  Heart, Star, ChevronRight, MapPin, Clock, CheckCircle2,
+import { 
+  ArrowRight, Truck, ShieldCheck, Leaf, Users, Package, Heart, Star, 
+  ChevronRight, MapPin, Clock, CheckCircle2 
 } from "lucide-react";
 
 const T = {
